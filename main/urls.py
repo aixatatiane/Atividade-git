@@ -16,7 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.http import HttpResponse
+from django.template import loader
+
+def tatiane_view(request):
+    templante = loader.get_template('tati.html')
+    return HttpResponse(templante.render())
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('tati/',tatiane_view),
 ]
