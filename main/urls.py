@@ -18,12 +18,9 @@ from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 from django.template import loader
-
-def tatiane_view(request):
-    templante = loader.get_template('tati.html')
-    return HttpResponse(templante.render())
+from . import views 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tati/',tatiane_view),
+    path('', views.tati_view, name='tati_views'),
 ]
